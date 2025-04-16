@@ -1,0 +1,6 @@
+@AI_102_HostAddress = http://localhost:5240
+
+GET {{AI_102_HostAddress}}/api/book
+Accept: application/json
+
+###
