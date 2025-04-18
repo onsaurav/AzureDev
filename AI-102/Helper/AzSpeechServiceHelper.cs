@@ -4,6 +4,7 @@ using Azure.AI.Vision.ImageAnalysis;
 using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.CognitiveServices.Speech;
 using System;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AI_102.Helper
 {
@@ -11,6 +12,7 @@ namespace AI_102.Helper
     {
         private readonly string _endpoint;
         private readonly string _key;
+        private readonly string _region;
 
         public AzSpeechServiceHelper(IConfiguration config)
         {
@@ -19,6 +21,9 @@ namespace AI_102.Helper
 
             _key = config["SPEECH_KEY"]
                 ?? throw new ArgumentNullException("SPEECH_KEY is missing");
+
+            _region = config["SPEECH_REGION"]
+               ?? throw new ArgumentNullException("SPEECH_REGION is missing");
         }
 
         public async Task<Result> RecognizSpeechFromFile(string fileName)
@@ -50,7 +55,8 @@ namespace AI_102.Helper
                     Data = speechRecognitionResult
                 };
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 return new Result()
                 {
                     IsSuccessful = false,
@@ -59,5 +65,44 @@ namespace AI_102.Helper
             }
         }
 
+        public async Task<Result> SpeakThisText(string text)
+        {
+            Result result = new Result() { IsSuccessful = false };
+
+            try
+            {
+                if (string.IsNullOrEmpty(text))
+                {
+                    result.Message = "Text is empty or null";
+                    return result;
+                }
+
+                var speechConfig = SpeechConfig.FromSubscription(_key, _region);
+                speechConfig.SpeechSynthesisVoiceName = "en-US-AvaMultilingualNeural";
+
+                using (var speechSynthesizer = new SpeechSynthesizer(speechConfig))
+                {
+                    var speechSynthesisResult = await speechSynthesizer.SpeakTextAsync(text);
+                    result = new Result()
+                    {
+                        IsSuccessful = true,
+                        Message = $"Speech synthesized for text: [{text}]",
+                        Data = speechSynthesisResult
+                    };
+
+                    System.IO.File.WriteAllBytes(@"C:\temp\recording\test-001.wav", speechSynthesisResult.AudioData);
+                }
+            }
+            catch (Exception ex)
+            {
+                result = new Result()
+                {
+                    IsSuccessful = false,
+                    Message = ex.Message
+                };
+            }
+
+            return result;
+        }
     }
 }
