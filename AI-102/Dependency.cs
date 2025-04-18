@@ -8,6 +8,7 @@ namespace AI_102
         {
             services.AddScoped<AzLanguageServiceHelper>();
             services.AddScoped<AzVisionServiceHelper>();
+            services.AddScoped<AzSpeechServiceHelper>();
         }
     }
 }
