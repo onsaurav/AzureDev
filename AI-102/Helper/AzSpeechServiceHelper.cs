@@ -65,7 +65,7 @@ namespace AI_102.Helper
             }
         }
 
-        public async Task<Result> SpeakThisText(string text)
+        public async Task<Result> SpeakThisText(string text, string outputFilePath)
         {
             Result result = new Result() { IsSuccessful = false };
 
@@ -90,7 +90,8 @@ namespace AI_102.Helper
                         Data = speechSynthesisResult
                     };
 
-                    System.IO.File.WriteAllBytes(@"C:\temp\recording\test-001.wav", speechSynthesisResult.AudioData);
+                    string filePath = $"C:\\temp\\recording\\{outputFilePath}";
+                    File.WriteAllBytes(filePath, speechSynthesisResult.AudioData);
                 }
             }
             catch (Exception ex)

@@ -22,10 +22,10 @@ namespace AI_102.Controllers
             return await _AzSpeechServiceHelper.RecognizSpeechFromFile(fileName);
         }
 
-        [HttpGet("speak-this-text")]
-        public async Task<Result> SpeakThisText([FromQuery] string text)
+        [HttpPost("speak-this-text")]
+        public async Task<Result> SpeakThisText(SpeakTextRequest speakTextRequest)
         {
-            return await _AzSpeechServiceHelper.SpeakThisText(text);
+            return await _AzSpeechServiceHelper.SpeakThisText(speakTextRequest.Text, speakTextRequest.OutputFileName);
         }
     }
 }
