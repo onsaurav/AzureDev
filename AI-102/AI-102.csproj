@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.AI.ContentSafety" Version="1.0.0" />
     <PackageReference Include="Azure.AI.TextAnalytics" Version="5.3.0" />
     <PackageReference Include="Azure.AI.Vision.ImageAnalysis" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
@@ -16,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -27,6 +31,9 @@
 
   <ItemGroup>
     <None Update="Audio\TestAudio.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Public\Images\image1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

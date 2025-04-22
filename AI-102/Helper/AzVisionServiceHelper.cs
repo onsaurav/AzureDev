@@ -13,7 +13,7 @@ namespace AI_102.Helper
         public AzVisionServiceHelper(IConfiguration config)
         {
             _endpoint = config["VISION_ENDPOINT"]
-            ?? throw new ArgumentNullException("VISION_ENDPOINT is missing");
+             ?? throw new ArgumentNullException("VISION_ENDPOINT is missing");
 
             _key = config["VISION_KEY"]
                 ?? throw new ArgumentNullException("VISION_KEY is missing");
