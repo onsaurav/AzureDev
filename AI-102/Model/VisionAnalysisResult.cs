@@ -4,6 +4,7 @@
     {
         public Caption Caption { get; set; } = new Caption();
         public List<LineText> LineTexts { get; set; } = new List<LineText>();
+        public object DataExt { get; set; }
     }
 
     public class Caption

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AI-102", "AI-102\AI-102.csproj", "{2D30F50B-6BFF-42A4-B502-578A95F32756}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AZ-102.App", "AZ-102.App\AZ-102.App.csproj", "{0BA531B4-D101-47B9-BBF0-C0BBD761B93B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2D30F50B-6BFF-42A4-B502-578A95F32756}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D30F50B-6BFF-42A4-B502-578A95F32756}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D30F50B-6BFF-42A4-B502-578A95F32756}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BA531B4-D101-47B9-BBF0-C0BBD761B93B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BA531B4-D101-47B9-BBF0-C0BBD761B93B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BA531B4-D101-47B9-BBF0-C0BBD761B93B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BA531B4-D101-47B9-BBF0-C0BBD761B93B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

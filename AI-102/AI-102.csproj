@@ -33,7 +33,7 @@
     <None Update="Audio\TestAudio.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Public\Images\image1.jpg">
+    <None Update="public\images\image1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

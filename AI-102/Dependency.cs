@@ -7,7 +7,7 @@ namespace AI_102
         public static void RegisterDependency(this IServiceCollection services)
         {
             services.AddScoped<AzLanguageServiceHelper>();
-            services.AddScoped<AzContentSafetyServiceHelper>();
+            services.AddScoped<AzVisionServiceHelper>();
             services.AddScoped<AzSpeechServiceHelper>();
             services.AddScoped<AzContentSafetyServiceHelper>();
         }
